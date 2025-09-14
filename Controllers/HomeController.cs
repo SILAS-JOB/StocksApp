@@ -5,28 +5,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using StocksApp.Services;
 
 namespace StocksApp.Controllers
 {
-    [Route("[controller]")]
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly MyService _myService;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(MyService myService)
         {
-            _logger = logger;
+            _myService = myService;
         }
 
-        public IActionResult Index()
+        [Route("/")]
+        public async Task<IActionResult> Index()
         {
+            await _myService.method();
+
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
         }
     }
 }

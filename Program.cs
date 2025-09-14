@@ -1,6 +1,10 @@
+using StocksApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<MyService>();
+var app = builder.Build();
 
 
 app.UseStaticFiles();
