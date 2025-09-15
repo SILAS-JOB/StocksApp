@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StocksApp.Services;
 
+
 namespace StocksApp.Controllers
 {
     public class HomeController : Controller
