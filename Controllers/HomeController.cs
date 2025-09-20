@@ -44,7 +44,7 @@ namespace StocksApp.Controllers
                 OpenPrice = Convert.ToDouble(responseDictionary["o"].ToString())
             };
 
-                return View();
+                return View(stock);
             
         }
     }
